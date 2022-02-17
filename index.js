@@ -4,6 +4,7 @@ const app = express()
 const config = require('./config')
 const collections = global.collections = config.collections
 const { pushToCache, readFromCache } = require('./controllers')
+const port = process.env.PORT || 3001
 
 app.use(express.json())
 
@@ -18,4 +19,4 @@ collections.forEach(col => {
   })
 })
 
-app.listen(process.env.PORT || 3000, () => console.log('Listening port 3000...'))
+app.listen(port, () => console.log(`Express Engagement Tracker listening on port ${port}...`))
